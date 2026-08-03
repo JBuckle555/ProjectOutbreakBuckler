@@ -26,7 +26,31 @@ sourceSets.main.resources {
 }
 
 repositories {
-    // Add here additional repositories if required by some of the dependencies below.
+    /*
+    Required Mods:
+        Protomanly's Weather
+        Create
+        Mekanism
+        Structerized
+    */
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
+    }//Protomanly's Weather
+
+    maven { url = "https://maven.createmod.net" } //Create - Core
+    maven { url = "https://maven.ithundxr.dev/snapshots" } // Create
+    maven { url = "https://modmaven.dev/" } //Mekanism
+
+    maven {
+        name = "ldtteam"
+        url = "https://ldtteam.jfrog.io/artifactory/maven/"
+    }
+
+    maven {
+        name = "CurseMaven"
+        url = "https://www.cursemaven.com"
+    }
 }
 
 base {
@@ -104,6 +128,32 @@ dependencies {
     // For all intends and purposes: You can treat this dependency as if it is a normal library you would use.
     implementation "net.neoforged:neoforge:${neo_version}"
 
+    //Protomanly's Weather Mod - Required*
+    runtimeOnly "maven.modrinth:TfCsmTLI:QIG999g7"
+
+    //Create Mod - Required*
+    runtimeOnly("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false }
+    runtimeOnly("net.createmod.ponder:ponder-neoforge:${ponder_version}+mc${minecraft_version}")
+    compileOnly("dev.engine-room.flywheel:flywheel-neoforge-api-${minecraft_version}:${flywheel_version}")
+    runtimeOnly("dev.engine-room.flywheel:flywheel-neoforge-${minecraft_version}:${flywheel_version}")
+    runtimeOnly("com.tterrag.registrate:Registrate:${registrate_version}")
+
+    //Mekanism - Required*
+    compileOnly "mekanism:Mekanism:${mekanism_version}:api"
+
+    // If you want to test/use Mekanism & its modules during `runClient` invocation, use the following
+    runtimeOnly("mekanism:Mekanism:${mekanism_version}")// Mekanism
+    runtimeOnly("mekanism:Mekanism:${mekanism_version}:additions")// Mekanism: Additions
+    runtimeOnly("mekanism:Mekanism:${mekanism_version}:generators")// Mekanism: Generators
+    runtimeOnly("mekanism:Mekanism:${mekanism_version}:tools")// Mekanism: Tools
+
+    //Structurized - Required*
+    runtimeOnly("curse.maven:structurize-298744:8138382") //Structurized
+    runtimeOnly("curse.maven:blockui-522992:7541336") //BlockUI
+    runtimeOnly("curse.maven:domum-ornamentum-527361:7789217")//Domum Ornamentum
+
+    //JEI - Optional
+    implementation "curse.maven:jei-238222:7391682"
     // Example optional mod dependency with JEI
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"
