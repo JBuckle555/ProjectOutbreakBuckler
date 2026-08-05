@@ -1,5 +1,6 @@
 package com.starshieldstudios.projectoutbreakbuckler;
 
+import com.starshieldstudios.projectoutbreakbuckler.core.registry.ModItems;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -57,7 +58,9 @@ public class ProjectOutbreakBuckler {
         // Register the commonSetup method for modloading
         System.out.println("Project Outbreak Buckler loaded!");
         modEventBus.addListener(this::commonSetup);
-
+//        ModBlocks.register(modEventBus);
+        ModItems.register(modEventBus);
+//        ModSounds.register(modEventBus);
 //        // Register the Deferred Register to the mod event bus so blocks get registered
 //        BLOCKS.register(modEventBus);
 //        // Register the Deferred Register to the mod event bus so items get registered
