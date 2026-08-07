@@ -1,0 +1,8 @@
+{
+  "sound_event": "projectoutbreakbuckler:ems_warning_us_siren_sound_event",
+  "description": {
+    "translate": "projectoutbreakbuckler.jukebox_song.outbreak_music_disc"
+  },
+  "length_in_seconds": 30.0,
+  "comparator_output": 15
+}
