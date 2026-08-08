@@ -1,0 +1,10 @@
+{
+  "ems_warning_us_siren_sound_event": {
+    "sounds": [
+      {
+        "name": "projectoutbreakbuckler:alerts/ems_test",
+        "stream": true
+      }
+    ]
+  }
+}

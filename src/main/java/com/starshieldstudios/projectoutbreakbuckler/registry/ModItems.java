@@ -1,8 +1,12 @@
-package com.starshieldstudios.projectoutbreakbuckler.core.registry;
+package com.starshieldstudios.projectoutbreakbuckler.registry;
 
 import com.starshieldstudios.projectoutbreakbuckler.ProjectOutbreakBuckler;
 
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.JukeboxSong;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -16,10 +20,19 @@ public class ModItems {
         ITEMS.register(eventBus);
     }
 
-    public static final DeferredItem<Item> OUTBREAK_MUSIC_DISC =
+    // Define the ResourceKey for your custom JukeboxSong
+    public static final ResourceKey<JukeboxSong> OUTBREAK_MUSIC_DISC_SONG_KEY =
+            ResourceKey.create(
+                    Registries.JUKEBOX_SONG,
+                    ResourceLocation.fromNamespaceAndPath(ProjectOutbreakBuckler.MOD_ID, "outbreak_disc")
+            );
+    // Define Outbreak_music_disc Item and use custom Resource<JukeboxSong> OMDS as .jukeboxPlaybale
+    public static final DeferredItem<Item> OUTBREAK_DISC =
             ITEMS.registerSimpleItem(
-                    "outbreak_music_disc",
-                    new Item.Properties().stacksTo(1)
+                    "outbreak_disc",
+                    new Item.Properties()
+                            .stacksTo(1)
+                            .jukeboxPlayable(OUTBREAK_MUSIC_DISC_SONG_KEY)
             );
 
     public static final DeferredItem<Item> POCKET_RADAR =
