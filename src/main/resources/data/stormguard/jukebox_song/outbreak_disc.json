@@ -1,0 +1,8 @@
+{
+  "sound_event": "stormguard:ems_warning_us_siren_sound_event",
+  "description": {
+    "translate": "stormguard.jukebox_song.outbreak_disc"
+  },
+  "length_in_seconds": 30.0,
+  "comparator_output": 15
+}
