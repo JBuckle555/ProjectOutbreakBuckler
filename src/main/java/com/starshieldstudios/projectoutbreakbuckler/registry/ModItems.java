@@ -2,6 +2,9 @@ package com.starshieldstudios.projectoutbreakbuckler.registry;
 
 import com.starshieldstudios.projectoutbreakbuckler.ProjectOutbreakBuckler;
 
+import com.starshieldstudios.projectoutbreakbuckler.item.audio.PortableWeatherRadio;
+import com.starshieldstudios.projectoutbreakbuckler.item.radar.PocketRadar;
+
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -20,13 +23,15 @@ public class ModItems {
         ITEMS.register(eventBus);
     }
 
-    // Define the ResourceKey for your custom JukeboxSong
     public static final ResourceKey<JukeboxSong> OUTBREAK_MUSIC_DISC_SONG_KEY =
             ResourceKey.create(
                     Registries.JUKEBOX_SONG,
-                    ResourceLocation.fromNamespaceAndPath(ProjectOutbreakBuckler.MOD_ID, "outbreak_disc")
+                    ResourceLocation.fromNamespaceAndPath(
+                            ProjectOutbreakBuckler.MOD_ID,
+                            "outbreak_disc"
+                    )
             );
-    // Define Outbreak_music_disc Item and use custom Resource<JukeboxSong> OMDS as .jukeboxPlaybale
+
     public static final DeferredItem<Item> OUTBREAK_DISC =
             ITEMS.registerSimpleItem(
                     "outbreak_disc",
@@ -35,15 +40,17 @@ public class ModItems {
                             .jukeboxPlayable(OUTBREAK_MUSIC_DISC_SONG_KEY)
             );
 
-    public static final DeferredItem<Item> POCKET_RADAR =
-            ITEMS.registerSimpleItem(
+    public static final DeferredItem<PocketRadar> POCKET_RADAR =
+            ITEMS.registerItem(
                     "pocket_radar",
+                    PocketRadar::new,
                     new Item.Properties().stacksTo(1)
             );
 
-    public static final DeferredItem<Item> PORTABLE_WEATHER_RADIO =
-            ITEMS.registerSimpleItem(
+    public static final DeferredItem<PortableWeatherRadio> PORTABLE_WEATHER_RADIO =
+            ITEMS.registerItem(
                     "portable_weather_radio",
+                    PortableWeatherRadio::new,
                     new Item.Properties().stacksTo(1)
             );
 }

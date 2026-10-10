@@ -11,7 +11,14 @@
   "examplemod.configuration.magicNumberIntroduction": "Magic Number Text",
   "examplemod.configuration.magicNumber": "Magic Number",
 
+  "item.projectoutbreakbuckler.portable_weather_radio": "Portable Weather Radio",
+  "item.projectoutbreakbuckler.pocket_radar": "Pocket Radar",
 
   "item.projectoutbreakbuckler.outbreak_disc": "Outbreak Warning Disc",
-  "jukebox_song.projectoutbreakbuckler.outbreak_disc": "EMS Warning Siren"
+  "jukebox_song.projectoutbreakbuckler.outbreak_disc": "EMS Warning Siren",
+
+
+  "creativetab.projectoutbreakbuckler.pob_items_tab": "Project Outbreak Items",
+  "creativetab.projectoutbreakbuckler.pob_block_tab": "Project Outbreak Blocks"
+
 }

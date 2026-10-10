@@ -1,5 +1,7 @@
 package com.starshieldstudios.projectoutbreakbuckler;
 
+import com.starshieldstudios.projectoutbreakbuckler.registry.CreativeModeTabs;
+import com.starshieldstudios.projectoutbreakbuckler.registry.ModBlocks;
 import com.starshieldstudios.projectoutbreakbuckler.registry.ModItems;
 import com.starshieldstudios.projectoutbreakbuckler.registry.ModSounds;
 import org.slf4j.Logger;
@@ -44,15 +46,17 @@ public class ProjectOutbreakBuckler {
         // Register the commonSetup method for modloading
         System.out.println("Project Outbreak Buckler loaded!");
         modEventBus.addListener(this::commonSetup);
-//        ModBlocks.register(modEventBus);
+
+        // Register the Deferred Register to the mod event bus so tabs get registered
+        CreativeModeTabs.register(modEventBus);
+        ModBlocks.register(modEventBus);
         ModItems.register(modEventBus);
         ModSounds.register(modEventBus);
 //        // Register the Deferred Register to the mod event bus so blocks get registered
 //        BLOCKS.register(modEventBus);
 //        // Register the Deferred Register to the mod event bus so items get registered
 //        ITEMS.register(modEventBus);
-//        // Register the Deferred Register to the mod event bus so tabs get registered
-//        CREATIVE_MODE_TABS.register(modEventBus);
+
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
